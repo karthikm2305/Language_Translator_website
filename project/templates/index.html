@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thenglish Translator</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start py-10">
+
+  <!-- Translator Card -->
+  <div class="max-w-3xl w-full px-6">
+    <div id="mainCard" class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+      <div class="p-10">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-3">🌐 Thenglish Translator</h1>
+        <p class="text-lg text-gray-500 mb-8">Translate Thenglish into English or Hindi.</p>
+
+        <textarea id="textInput" rows="3"
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 text-lg focus:ring-2 focus:ring-black focus:outline-none transition"
+          placeholder="Type Thenglish here..."></textarea>
+
+        <div class="flex gap-3 mt-6">
+          <select id="languageSelect"
+            class="rounded-xl border border-gray-300 px-4 py-2 text-lg focus:ring-2 focus:ring-black">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+          </select>
+          <button id="translateBtn"
+            class="ml-auto bg-black text-white px-6 py-2 rounded-xl text-lg font-semibold hover:bg-gray-800 transition">Translate</button>
+          <button id="pronounceBtn"
+            class="border border-gray-300 px-6 py-2 rounded-xl text-lg hover:bg-gray-100 transition">🔊</button>
+        </div>
+
+        <div id="output" class="hidden mt-8">
+          <h2 class="text-2xl font-semibold text-gray-900">Translation</h2>
+          <p id="translationText" class="mt-4 text-3xl font-light text-gray-700"></p>
+          <p class="text-sm text-gray-400 mt-2">Source: <span id="sourceLabel">—</span></p>
+          <audio id="audioPlayer" controls class="hidden mt-6 w-full"></audio>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Word Cloud -->
+  <div class="max-w-3xl w-full px-6 mt-12">
+    <div class="bg-white rounded-3xl border border-gray-100 shadow-xl p-10">
+      <h2 class="text-2xl font-semibold mb-4">Thenglish Word Cloud</h2>
+      <p class="text-gray-500 mb-3">Click any word to auto-fill and translate.</p>
+      <p class="text-xs text-gray-400 mb-4">Scroll inside the box to see more words ↓</p>
+      <div id="cloudContainer" class="min-h-[200px] flex flex-wrap gap-3 p-3"></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+flask==2.2.5
+werkzeug==2.2.3
+
+pandas==2.2.3
+numpy==2.2.1
+
+
+gTTS==2.3.1
+
+tensorflow==2.20.0
+
+python-dotenv==1.0.0
+
+protobuf==5.28.3
